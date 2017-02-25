@@ -1,6 +1,7 @@
 import pdb
 import numpy as np
-import random
+from pig import Pig
+
 '''
 Matrix Implementation
 
@@ -12,8 +13,8 @@ num_pigs = 6
 def matrix_creation(size):
     matrix = np.zeros((size, size), dtype = int)
     directions = [[-1,0],[1,0],[0,-1],[0,1],[1,1],[-1,1],[1,-1],[-1,-1]]
-    location_list = []
-    pigs_list = []
+    location_list=[]
+    pig_list = []
 
     for i in range(num_pigs):
         pig_location = np.random.choice(size,2, replace = True)
@@ -21,10 +22,8 @@ def matrix_creation(size):
             pig_location = np.random.choice(size,2, replace = True)
         matrix[pig_location[0],pig_location[1]] = 1
         location_list.append([pig_location[0],pig_location[1]])
-        pig = Pig(location_list)
-    pdb.set_trace()
+        pig_list.append(Pig((pig_location[0],pig_location[1])))
 
-    return location_list
 
 
 if __name__ == '__main__':
