@@ -28,6 +28,8 @@ def matrix_creation(size):
         matrix[pig_location[0],pig_location[1]] = 1
         location_list.append([pig_location[0],pig_location[1]])
         pig_list.append(Pig((pig_location[0],pig_location[1]), len(pig_list)))
+    
+    pig_list[0].send_message()
         
     
     #Place stones in the matrix:
@@ -42,3 +44,4 @@ def matrix_creation(size):
     
 if __name__ == '__main__':
       matrix_creation(4)
+      
